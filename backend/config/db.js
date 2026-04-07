@@ -2,7 +2,7 @@ const Database = require('better-sqlite3');
 const path = require('path');
 const bcrypt = require('bcrypt');
 
-const dbPath = path.resolve(__dirname, '../../database/ecommerce.db');
+const dbPath = path.resolve(__dirname, 'ecommerce.db');
 const db = new Database(dbPath, { verbose: console.log });
 
 // Initialize database schema
