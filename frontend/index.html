@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopDB - Online Shopping</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h2>ShopDB<span class="explore"><i>Explore Plus</i></span></h2>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for products, brands and more">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="nav-actions">
+                <button id="loginBtn" class="btn login-btn">Login</button>
+                <div id="userMenu" class="user-menu hidden">
+                    <span id="userNameDisplay">Hi, User</span>
+                    <button id="logoutBtn" class="btn text-btn">Logout</button>
+                </div>
+                <div class="action-item" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                    <span id="cartCount" class="badge">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories Nav -->
+    <nav class="categories-nav">
+        <ul>
+            <li class="category-link" data-category="">All</li>
+            <li class="category-link" data-category="Electronics">Electronics</li>
+            <li class="category-link" data-category="Fashion">Fashion</li>
+            <li class="category-link" data-category="Home">Home & Furniture</li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Products View (Default) -->
+        <section id="productsView">
+            <div class="hero-banner">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=2000&q=80" alt="Sale Banner">
+                <div class="hero-text">
+                    <h1>Big Billion Days Are Back!</h1>
+                    <p>Up to 80% off on top electronics and fashion.</p>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2>Best of Electronics</h2>
+            </div>
+            
+            <div class="product-grid" id="productContainer">
+                <!-- Products dynamically injected here -->
+                <div class="loading">Loading products...</div>
+            </div>
+        </section>
+
+        <!-- Cart View -->
+        <section id="cartView" class="hidden">
+            <div class="cart-container">
+                <div class="cart-items-section">
+                    <h2>My Cart (<span id="cartViewCount">0</span>)</h2>
+                    <div id="cartItemsContainer">
+                        <!-- Cart items dynamically injected here -->
+                    </div>
+                </div>
+                <div class="cart-summary-section">
+                    <h3>Price Details</h3>
+                    <div class="summary-row">
+                        <span>Price (<span id="summaryItemCount">0</span> items)</span>
+                        <span id="summaryTotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Charges</span>
+                        <span class="text-green">FREE</span>
+                    </div>
+                    <div class="summary-row total-row" style="margin-bottom: 20px;">
+                        <span>Total Amount</span>
+                        <span id="summaryFinalTotal">$0.00</span>
+                    </div>
+                    <div class="address-input-group">
+                        <label for="deliveryAddress" style="display:block; margin-bottom:10px; font-weight:600; font-size:14px; text-transform:uppercase;">Delivery Address</label>
+                        <textarea id="deliveryAddress" rows="3" placeholder="Enter your full shipping address..." class="address-textarea"></textarea>
+                    </div>
+                    <button id="checkoutBtn" class="btn btn-primary checkout-btn">PLACE ORDER</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Orders View -->
+        <section id="ordersView" class="hidden">
+             <div class="section-title" style="margin-top: 20px; padding: 0 20px;">
+                <h2>My Orders</h2>
+            </div>
+            <div class="orders-container" id="ordersContainer">
+                <!-- Orders injected here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ShopDB. All rights reserved.</p>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content auth-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-left">
+                <h2>Login</h2>
+                <p>Get access to your Orders, Wishlist and Recommendations</p>
+            </div>
+            <div class="auth-right">
+                <form id="authForm">
+                    <input type="text" id="authName" placeholder="Enter Name (for Register)" class="hidden">
+                    <input type="email" id="authEmail" placeholder="Enter Email/Mobile number" required>
+                    <input type="password" id="authPassword" placeholder="Enter Password" required>
+                    <button type="submit" id="authSubmitBtn" class="btn btn-primary full-width">Login</button>
+                </form>
+                <div class="auth-switch">
+                    <span id="authToggleText">New to ShopDB? Create an account</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast">Message</div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
